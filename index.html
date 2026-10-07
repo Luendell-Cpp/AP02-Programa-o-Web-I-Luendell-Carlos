@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Controle de gastos</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="topo">
+      <h1>Meus gastos</h1>
+      <button type="button" id="botao-modo" aria-pressed="false">Modo escuro</button>
+    </header>
+
+    <section class="painel" aria-label="Resumo">
+      <p class="rotulo">Total gasto</p>
+      <p id="total" class="total verde">R$ 0,00</p>
+      <p id="contador">0 gastos registrados</p>
+    </section>
+
+    <form id="formulario" novalidate>
+      <div class="campo">
+        <label for="descricao">Descrição</label>
+        <input type="text" id="descricao" autocomplete="off">
+      </div>
+      <div class="campo">
+        <label for="valor">Valor (R$)</label>
+        <input type="number" id="valor" step="0.01" inputmode="decimal">
+      </div>
+      <div class="campo">
+        <label for="categoria">Categoria</label>
+        <select id="categoria">
+          <option value="Alimentação">Alimentação</option>
+          <option value="Transporte">Transporte</option>
+          <option value="Lazer">Lazer</option>
+          <option value="Outros">Outros</option>
+        </select>
+      </div>
+      <p id="mensagem-erro" class="mensagem-erro" role="alert"></p>
+      <button type="submit" class="principal">Adicionar gasto</button>
+    </form>
+
+    <section aria-label="Lista de gastos">
+      <div class="campo">
+        <label for="filtro">Filtrar por categoria</label>
+        <select id="filtro">
+          <option value="Todas">Todas</option>
+          <option value="Alimentação">Alimentação</option>
+          <option value="Transporte">Transporte</option>
+          <option value="Lazer">Lazer</option>
+          <option value="Outros">Outros</option>
+        </select>
+      </div>
+      <ul id="lista"></ul>
+    </section>
+  </main>
+</body>
+</html>

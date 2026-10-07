@@ -1,0 +1,154 @@
+/* ===== Variáveis de cor (modo claro) ===== */
+:root {
+  --fundo: #f3f5f7;
+  --superficie: #ffffff;
+  --texto: #1c2430;
+  --texto-suave: #5a6675;
+  --borda: #c9d1da;
+  --destaque: #1f5fbf;
+  --destaque-texto: #ffffff;
+  --erro: #b3261e;
+  --verde: #1b7a3d;
+  --amarelo: #8a6100;
+  --vermelho: #b3261e;
+}
+
+/* ===== Variáveis de cor (modo escuro) ===== */
+body.escuro {
+  --fundo: #11161d;
+  --superficie: #1b232d;
+  --texto: #e8edf2;
+  --texto-suave: #a3afbd;
+  --borda: #3a4757;
+  --destaque: #6aa3f5;
+  --destaque-texto: #0b1118;
+  --erro: #ff8a80;
+  --verde: #5fd68a;
+  --amarelo: #f2c14e;
+  --vermelho: #ff8a80;
+}
+
+/* ===== Base ===== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+.container {
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+h1 { font-size: 1.5rem; margin: 0; }
+
+/* ===== Painel de total ===== */
+.painel {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.painel p { margin: 0; }
+.rotulo { color: var(--texto-suave); }
+.total { font-size: 2rem; font-weight: 700; }
+.total.verde { color: var(--verde); }
+.total.amarelo { color: var(--amarelo); }
+.total.vermelho { color: var(--vermelho); }
+
+/* ===== Formulário ===== */
+form {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.campo { margin-bottom: 0.75rem; }
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+input, select {
+  width: 100%;
+  font: inherit;
+  padding: 0.6rem;
+  background: var(--fundo);
+  color: var(--texto);
+  border: 2px solid var(--borda);
+  border-radius: 0.375rem;
+}
+
+input.invalido { border-color: var(--erro); }
+
+.mensagem-erro {
+  color: var(--erro);
+  font-weight: 600;
+  min-height: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+/* ===== Botões ===== */
+button {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 0.9rem;
+  background: var(--superficie);
+  color: var(--texto);
+  border: 2px solid var(--borda);
+  border-radius: 0.375rem;
+}
+
+button.principal {
+  width: 100%;
+  background: var(--destaque);
+  color: var(--destaque-texto);
+  border-color: var(--destaque);
+  font-weight: 700;
+}
+
+/* Foco visível para navegação por teclado */
+input:focus-visible, select:focus-visible, button:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 2px;
+}
+
+/* ===== Lista de gastos ===== */
+ul { list-style: none; margin: 0; padding: 0; }
+
+.gasto {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.gasto .descricao { flex: 1 1 100%; font-weight: 600; overflow-wrap: anywhere; }
+.gasto .categoria { flex: 1; color: var(--texto-suave); }
+.gasto .valor { font-weight: 700; }
+
+.gasto.oculto { display: none; }
